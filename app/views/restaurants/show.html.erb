@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
+  <h1>
+    <strong><%= @restaurant.name %></strong>
+  </h1>
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
+  <p>
+    <strong>Category:</strong>
+    <%= @restaurant.category %>
+  </p>
+
+  <p>
+    <strong>Reviews:</strong>
+  </p>
+  <% @restaurant.reviews.each do |review| %>
+  <p><%= review.content %></p>
+  <p> <%= "Rating  #{'*' * review.rating}" %> </p>
+
+  <hr>
+  <% end %>
+
+  <hr>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+
+  <%= link_to 'Back to all Restaurants', restaurants_path %>
+
+</div>
+
+
+
+<div class="container mt-5">
+
+  <h1>Add a review for <%= @restaurant.name %></h1>
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+  <div class="form-inputs">
+  <%= f.input :content %>
+  <%= f.input :rating %>
+</div>
+<div class="form-actions btn btn-primary">
+  <%= f.button :submit %>
+</div>
+
+
+<%= link_to "Back to #{@restaurant.name}", restaurant_path(@restaurant) %> |
+<%= link_to 'Back to all Restaurants', restaurants_path %>
+</div>
+<% end %>
+
+
+
+
+
