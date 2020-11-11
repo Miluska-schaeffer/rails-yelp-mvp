@@ -11,6 +11,8 @@
     <strong>Category:</strong>
     <%= @restaurant.category %>
   </p>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+  <hr>
 
   <p>
     <strong>Reviews:</strong>
@@ -19,16 +21,9 @@
   <p><%= review.content %></p>
   <p> <%= "Rating  #{'*' * review.rating}" %> </p>
 
-  <hr>
   <% end %>
 
-  <hr>
-  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-
-  <%= link_to 'Back to all Restaurants', restaurants_path %>
-
 </div>
-
 
 
 <div class="container mt-5">
@@ -44,7 +39,6 @@
 </div>
 
 
-<%= link_to "Back to #{@restaurant.name}", restaurant_path(@restaurant) %> |
 <%= link_to 'Back to all Restaurants', restaurants_path %>
 </div>
 <% end %>
